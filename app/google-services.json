@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "356889427340",
+    "firebase_url": "https://lafinikeria.firebaseio.com",
+    "project_id": "lafinikeria",
+    "storage_bucket": "lafinikeria.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356889427340:android:0de7d8f8f5fe06b512eaa9",
+        "android_client_info": {
+          "package_name": "com.udlacdmx.lafinikeria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356889427340-9h811m1u9i6s6q1qi1ek4fvoc3i4t01m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy0fZY0PXLL_eVprcOlhBqxVhCb6woviM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356889427340-9h811m1u9i6s6q1qi1ek4fvoc3i4t01m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

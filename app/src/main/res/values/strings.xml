@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">La Finikeria</string>
+    <string name="email">Email</string>
+    <string name="Login_button">Login</string>
+    <string name="password_placeholder">Contraseña</string>
+    <string name="register_button">Registrarse</string>
+</resources>
