@@ -1,8 +1,7 @@
-package com.danielchioro.lafinikeria.ui.main;
+package com.danielchioro.lafinikeria.ui.Register;
 
 import androidx.lifecycle.ViewModelProviders;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,46 +16,46 @@ import android.widget.TextView;
 
 import com.danielchioro.lafinikeria.R;
 
-public class MainFragment extends Fragment {
+public class RegisterFragment extends Fragment {
 
-    private MainViewModel mViewModel;
+    private RegisterViewModel mViewModel;
 
-    private Button mLoginButton;
-    private TextView mPassword;
     private TextView mEmail;
+    private TextView mPassword;
+    private TextView mConfirmPassword;
 
-    public static MainFragment newInstance() {
-        return new MainFragment();
+    private Button mRegisterButton;
+
+    public static RegisterFragment newInstance() {
+        return new RegisterFragment();
     }
 
-    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
-        return inflater.inflate(R.layout.main_fragment, container, false);
+        return inflater.inflate(R.layout.register_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(RegisterViewModel.class);
         // TODO: Use the ViewModel
 
-        mLoginButton = getActivity().findViewById(R.id.login_button);
+        mEmail = getActivity().findViewById(R.id.email_editText);
         mPassword = getActivity().findViewById(R.id.password_editText);
-        mPassword = getActivity().findViewById(R.id.email_editText);
+        mConfirmPassword = getActivity().findViewById(R.id.confirm_password_editText);
 
-        mLoginButton.setOnClickListener(new View.OnClickListener() {
+        mRegisterButton = getActivity().findViewById(R.id.register_button);
+
+        mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = (String) mEmail.getText();
                 String password = (String) mPassword.getText();
-                mViewModel.loginUser(email, password);
+                mViewModel.registerUser(email, password);
             }
         });
-
     }
-    
-}
 
+}
