@@ -11,6 +11,8 @@ import com.danielchioro.lafinikeria.models.Order;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class OrderRecylerViewAdapter extends RecyclerView.Adapter<OrderRecylerViewAdapter.mViewHolder> {
@@ -25,13 +27,11 @@ public class OrderRecylerViewAdapter extends RecyclerView.Adapter<OrderRecylerVi
     public static class mViewHolder extends RecyclerView.ViewHolder {
 
         public TextView id;
-        public TextView description;
         public TextView ammount;
 
         public mViewHolder(View view) {
             super(view);
             id = view.findViewById(R.id.orders_id_textView);
-            description = view.findViewById(R.id.orders_description_textView);
             ammount = view.findViewById(R.id.orders_ammount_textView);
         }
     }
@@ -47,8 +47,10 @@ public class OrderRecylerViewAdapter extends RecyclerView.Adapter<OrderRecylerVi
 
     @Override
     public void onBindViewHolder(@NonNull mViewHolder holder, int position) {
-        holder.id.setText(items.get(position).getOrderId());
-        holder.description.setText(items.get(position).getDetail());
+        Long currentMili = Long.parseLong(items.get(position).getOrderId());
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+        Date orderDate = new Date(currentMili*1000);
+        holder.id.setText(sdf.format(orderDate));
         holder.ammount.setText("Total "+items.get(position).getAmmount()+"  MXN");
     }
 

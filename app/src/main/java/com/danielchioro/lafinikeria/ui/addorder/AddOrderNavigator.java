@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface AddOrderNavigator {
     void onDataRetrieve(List<Food> items);
+    void onOrderCreated();
 }

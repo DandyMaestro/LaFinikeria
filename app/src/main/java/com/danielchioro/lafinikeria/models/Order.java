@@ -1,32 +1,38 @@
 package com.danielchioro.lafinikeria.models;
 
+import java.util.List;
+
 public class Order {
 
-    public Order(String orderId, String detail, String ammount) {
+    public Order(String orderId, List<Food> detail, float ammount) {
         this.orderId = orderId;
         this.detail = detail;
         this.ammount = ammount;
     }
 
+    public Order() {
+
+    }
+
     private String orderId;
 
-    public String getDetail() {
+    public List<Food> getDetail() {
         return detail;
     }
 
-    public void setDetail(String detail) {
+    public void setDetail(List<Food> detail) {
         this.detail = detail;
     }
 
-    public String getAmmount() {
+    public float getAmmount() {
         return ammount;
     }
 
-    public void setAmmount(String ammount) {
+    public void setAmmount(float ammount) {
         this.ammount = ammount;
     }
 
-    private String detail;
+    private List<Food> detail;
 
 
     public String getOrderId() {
@@ -37,5 +43,5 @@ public class Order {
         this.orderId = orderId;
     }
 
-    private String ammount;
+    private float ammount;
 }

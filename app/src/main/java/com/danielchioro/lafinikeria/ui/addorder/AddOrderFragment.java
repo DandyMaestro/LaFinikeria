@@ -1,6 +1,8 @@
 package com.danielchioro.lafinikeria.ui.addorder;
 
 import androidx.lifecycle.ViewModelProviders;
+
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,13 +17,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.danielchioro.lafinikeria.MainViewActivity;
 import com.danielchioro.lafinikeria.R;
 import com.danielchioro.lafinikeria.models.Food;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-public class AddOrderFragment extends Fragment  implements AddOrderNavigator{
+public class AddOrderFragment extends Fragment  implements AddOrderNavigator {
 
     private AddOrderViewModel mViewModel;
 
@@ -35,7 +40,7 @@ public class AddOrderFragment extends Fragment  implements AddOrderNavigator{
     private TextView totalCount;
     private TextView itemCount;
     private float mTotalCount;
-    private int mItemCount;
+    private List<Food> mItemCount = new ArrayList<>();
 
     @Nullable
     @Override
@@ -55,6 +60,12 @@ public class AddOrderFragment extends Fragment  implements AddOrderNavigator{
         mViewModel = ViewModelProviders.of(this).get(AddOrderViewModel.class);
         mViewModel.navigator = this;
         addOrderButton = getActivity().findViewById(R.id.addOrder_button);
+        addOrderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewModel.createOrder(mItemCount, mTotalCount);
+            }
+        });
         itemCount = getActivity().findViewById(R.id.noTacos_textView);
         totalCount = getActivity().findViewById(R.id.totalCount_textView);
         mViewModel.retriveOrders();
@@ -64,14 +75,20 @@ public class AddOrderFragment extends Fragment  implements AddOrderNavigator{
     public void onDataRetrieve(List<Food> items) {
         mAdapter = new AddOrderRecyclerViewAdapter(items, new AddOrderRecyclerViewAdapter.AgregarFood() {
             @Override
-            public void onAgregarFood(float price) {
+            public void onAgregarFood(float price, Food item) {
                 mTotalCount += price;
-                mItemCount ++;
-                itemCount.setText("No. de Tacos " + mItemCount);
+                mItemCount.add(item);
+                itemCount.setText("No. de Tacos " + mItemCount.size());
                 totalCount.setText("Total: "+ mTotalCount +" MXN");
                 Log.w(TAG, "The price is: " );
             }
         });
         mFoodRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onOrderCreated() {
+        Intent intent = new Intent(getContext(), MainViewActivity.class);
+        getActivity().startActivity(intent);
     }
 }

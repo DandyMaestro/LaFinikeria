@@ -18,7 +18,7 @@ import com.danielchioro.lafinikeria.models.Order;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements HomeViewNavigator {
 
     private HomeViewModel homeViewModel;
     private RecyclerView mOrdersRecycler;
@@ -45,13 +45,13 @@ public class HomeFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
+        homeViewModel.navigator = this;
+        homeViewModel.retriveOrders();
+    }
 
-        List<Order> items = new ArrayList<Order>();
-        Order item1 = new Order("1", "chiles", "23");
-        Order item2 = new Order("2", "tacos de pastor", "32");
-        items.add(item1);
-        items.add(item2);
-        mAdapter = new OrderRecylerViewAdapter(items);
+    @Override
+    public void onOrdersRetrived(List<Order> orders) {
+        mAdapter = new OrderRecylerViewAdapter(orders);
         mOrdersRecycler.setAdapter(mAdapter);
     }
 }

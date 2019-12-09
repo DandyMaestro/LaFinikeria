@@ -43,7 +43,7 @@ public class AddOrderRecyclerViewAdapter extends RecyclerView.Adapter<AddOrderRe
         holder.addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAddFoodAction.onAgregarFood(foodItems.get(mPosition).getPrice());
+                mAddFoodAction.onAgregarFood(foodItems.get(mPosition).getPrice(), foodItems.get(mPosition));
             }
         });
     }
@@ -70,7 +70,7 @@ public class AddOrderRecyclerViewAdapter extends RecyclerView.Adapter<AddOrderRe
     }
 
     public interface AgregarFood {
-        void onAgregarFood(float price);
+        void onAgregarFood(float price, Food item);
     }
 
 }
