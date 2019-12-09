@@ -22,14 +22,20 @@
             android:title="@string/menu_tools" />
     </group>
 
-    <item android:title="Communicate">
+    <item
+        android:id="@+id/signout"
+        android:title="@string/menu_logout">
         <menu>
+<!--            <item-->
+<!--                android:id="@+id/nav_share"-->
+<!--                android:icon="@drawable/ic_menu_share"-->
+<!--                android:title="@string/menu_share" />-->
+<!--            <item-->
+<!--                android:id="@+id/nav_send"-->
+<!--                android:icon="@drawable/ic_action_name"-->
+<!--                android:title="@string/menu_logout" />-->
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_action_name"
                 android:title="@string/menu_logout" />
         </menu>
