@@ -32,13 +32,13 @@ public class OrderRecylerViewAdapter extends RecyclerView.Adapter<OrderRecylerVi
 
         public TextView id;
         public TextView ammount;
-        public CardView container;
+        public View container;
 
         public mViewHolder(View view) {
             super(view);
             id = view.findViewById(R.id.orders_id_textView);
             ammount = view.findViewById(R.id.orders_ammount_textView);
-            container = view.findViewById(R.id.order_cardView);
+            container = view;
         }
     }
 
@@ -62,7 +62,7 @@ public class OrderRecylerViewAdapter extends RecyclerView.Adapter<OrderRecylerVi
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onDetailAction.callback(items.get(mPosition).getDetail());
+                onDetailAction.callback(items.get(mPosition).getDetail(), items.get(mPosition).getAmmount());
             }
         });
     }
@@ -73,6 +73,6 @@ public class OrderRecylerViewAdapter extends RecyclerView.Adapter<OrderRecylerVi
     }
 
     public interface Callback {
-        void callback(List<Food> detail);
+        void callback(List<Food> detail, float total);
     }
 }

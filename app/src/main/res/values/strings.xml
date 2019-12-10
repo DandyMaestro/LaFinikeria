@@ -24,10 +24,10 @@
     <string name="orders_item_id">Order id</string>
     <string name="orders_item_desciption">Descripción de la orden</string>
     <string name="orders_item_total">Monto total de la orden</string>
-<!--    Add order Fragment! -->
+    <!--    Add order Fragment! -->
     <string name="addorder_fragment_addbutton">Agergar Orden</string>
     <string name="addorder_fragment_noTacos">No. de Tacos</string>
     <string name="addorder_fragment_total">Total</string>
-<!--    add order RecyclerView! -->
+    <!--    add order RecyclerView! -->
     <string name="addorders_item_addbutton">Agregar</string>
 </resources>

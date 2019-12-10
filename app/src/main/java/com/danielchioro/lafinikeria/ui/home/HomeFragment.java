@@ -16,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.danielchioro.lafinikeria.R;
 import com.danielchioro.lafinikeria.models.Food;
 import com.danielchioro.lafinikeria.models.Order;
+import com.danielchioro.lafinikeria.ui.OrderDetailActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,9 +52,11 @@ public class HomeFragment extends Fragment implements HomeViewNavigator {
     public void onOrdersRetrived(List<Order> orders) {
         mAdapter = new OrderRecylerViewAdapter(orders, new OrderRecylerViewAdapter.Callback() {
             @Override
-            public void callback(List<Food> detail) {
-//                Intent intent = new Intent(getContext(), );
-                System.out.println("");
+            public void callback(List<Food> detail, float total) {
+                Intent intent = new Intent(getContext(), OrderDetailActivity.class);
+                intent.putExtra("total", total);
+                intent.putExtra("details", (Serializable) detail);
+                startActivity(intent);
             }
         });
         mOrdersRecycler.setAdapter(mAdapter);

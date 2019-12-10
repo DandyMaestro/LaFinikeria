@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="15dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:layout_marginStart="25dp">
 
     <TextView
-        android:id="@+id/orders_id_textView"
+        android:id="@+id/name_orderdetail_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/orders_item_id"
-        android:textAlignment="center"
+        android:text="TextView"
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/orders_ammount_textView"
+        android:id="@+id/description_orderdetail_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:text="@string/orders_item_total" />
+        android:text="TextView"
+        android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/price_orderdetail_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 </LinearLayout>
