@@ -10,18 +10,21 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
 
-            android:id="@+id/food_recyclerView"
+                android:id="@+id/food_recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -49,6 +52,8 @@
                     android:id="@+id/addOrder_button"
                     android:layout_width="231dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:backgroundTint="@color/colorAccent"
                     android:gravity="center"
                     android:text="@string/addorder_fragment_addbutton" />
             </LinearLayout>

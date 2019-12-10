@@ -7,6 +7,12 @@
     android:layout_marginStart="15dp"
     android:orientation="vertical">
 
+    <view
+        android:id="@+id/order_cardView"
+        class="androidx.cardview.widget.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/orders_id_textView"
         android:layout_width="wrap_content"

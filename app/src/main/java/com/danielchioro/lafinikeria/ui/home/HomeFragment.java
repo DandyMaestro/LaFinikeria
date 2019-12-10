@@ -1,5 +1,6 @@
 package com.danielchioro.lafinikeria.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.danielchioro.lafinikeria.R;
+import com.danielchioro.lafinikeria.models.Food;
 import com.danielchioro.lafinikeria.models.Order;
 
 import java.util.ArrayList;
@@ -31,12 +33,7 @@ public class HomeFragment extends Fragment implements HomeViewNavigator {
         RecyclerView.LayoutManager linerLayout = new LinearLayoutManager(getActivity());
         mOrdersRecycler = root.findViewById(R.id.orders_RecyclerView);
         mOrdersRecycler.setLayoutManager(linerLayout);
-//        homeViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
+//        mOrdersRecycler
         return root;
     }
 
@@ -51,7 +48,13 @@ public class HomeFragment extends Fragment implements HomeViewNavigator {
 
     @Override
     public void onOrdersRetrived(List<Order> orders) {
-        mAdapter = new OrderRecylerViewAdapter(orders);
+        mAdapter = new OrderRecylerViewAdapter(orders, new OrderRecylerViewAdapter.Callback() {
+            @Override
+            public void callback(List<Food> detail) {
+//                Intent intent = new Intent(getContext(), );
+                System.out.println("");
+            }
+        });
         mOrdersRecycler.setAdapter(mAdapter);
     }
 }

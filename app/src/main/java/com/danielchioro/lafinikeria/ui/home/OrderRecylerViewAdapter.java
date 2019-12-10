@@ -6,9 +6,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.danielchioro.lafinikeria.R;
+import com.danielchioro.lafinikeria.models.Food;
 import com.danielchioro.lafinikeria.models.Order;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
@@ -19,20 +21,24 @@ public class OrderRecylerViewAdapter extends RecyclerView.Adapter<OrderRecylerVi
 
     private static final String TAG = "RecyclerViewAdapter";
     private List<Order> items;
+    private Callback onDetailAction;
 
-    public OrderRecylerViewAdapter(List<Order> items) {
+    public OrderRecylerViewAdapter(List<Order> items, Callback action) {
         this.items = items;
+        onDetailAction = action;
     }
 
     public static class mViewHolder extends RecyclerView.ViewHolder {
 
         public TextView id;
         public TextView ammount;
+        public CardView container;
 
         public mViewHolder(View view) {
             super(view);
             id = view.findViewById(R.id.orders_id_textView);
             ammount = view.findViewById(R.id.orders_ammount_textView);
+            container = view.findViewById(R.id.order_cardView);
         }
     }
 
@@ -47,11 +53,18 @@ public class OrderRecylerViewAdapter extends RecyclerView.Adapter<OrderRecylerVi
 
     @Override
     public void onBindViewHolder(@NonNull mViewHolder holder, int position) {
+        final int mPosition = position;
         Long currentMili = Long.parseLong(items.get(position).getOrderId());
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy HH:mm");
         Date orderDate = new Date(currentMili*1000);
         holder.id.setText(sdf.format(orderDate));
         holder.ammount.setText("Total "+items.get(position).getAmmount()+"  MXN");
+        holder.container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onDetailAction.callback(items.get(mPosition).getDetail());
+            }
+        });
     }
 
     @Override
@@ -60,6 +73,6 @@ public class OrderRecylerViewAdapter extends RecyclerView.Adapter<OrderRecylerVi
     }
 
     public interface Callback {
-        void callback();
+        void callback(List<Food> detail);
     }
 }

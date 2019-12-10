@@ -26,7 +26,7 @@ public class LoginFragment extends Fragment implements LoginNavigator {
     private LoginViewModel mViewModel;
 
     private Button mLoginButton;
-    private Button mRegisterButton;
+//    private Button mRegisterButton;
     private TextView mPassword;
     private TextView mEmail;
 
@@ -50,7 +50,7 @@ public class LoginFragment extends Fragment implements LoginNavigator {
         // TODO: Use the ViewModel
 
         mLoginButton = getActivity().findViewById(R.id.login_button);
-        mRegisterButton = getActivity().findViewById(R.id.register_button);
+//        mRegisterButton = getActivity().findViewById(R.id.register_button);
         mPassword = getActivity().findViewById(R.id.password_editText);
         mEmail = getActivity().findViewById(R.id.email_editText);
 
@@ -65,13 +65,13 @@ public class LoginFragment extends Fragment implements LoginNavigator {
             }
         });
 
-        mRegisterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
+//        mRegisterButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), RegisterActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 
@@ -83,7 +83,8 @@ public class LoginFragment extends Fragment implements LoginNavigator {
 
     @Override
     public void showError(String error) {
-        Toast.makeText(getContext(), error, Toast.LENGTH_LONG);
+        //new Toast.makeText(getContext(), error, Toast.LENGTH_LONG);
+        Toast.makeText(getContext(),error,Toast.LENGTH_LONG).show();
     }
 }
 
