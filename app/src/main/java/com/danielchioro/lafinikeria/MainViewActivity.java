@@ -3,7 +3,7 @@ package com.danielchioro.lafinikeria;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.danielchioro.lafinikeria.ui.gallery.GalleryFragment;
+import com.danielchioro.lafinikeria.ui.items.ItemsFragment;
 import com.danielchioro.lafinikeria.ui.home.HomeFragment;
 import com.danielchioro.lafinikeria.ui.tools.ToolsFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -52,7 +52,7 @@ public class MainViewActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, /*R.id.nav_gallery, R.id.nav_slideshow,
+                R.id.nav_home, R.id.nav_gallery, /*R.id.nav_slideshow,
                 R.id.nav_tools, R.id.nav_share, R.id.nav_send,*/ R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
@@ -75,7 +75,7 @@ public class MainViewActivity extends AppCompatActivity {
                         fragment = new HomeFragment();
                         break;
                     case R.id.nav_gallery:
-                        fragment = new GalleryFragment();
+                        fragment = new ItemsFragment();
                         break;
                     case R.id.nav_tools:
                         fragment = new ToolsFragment();

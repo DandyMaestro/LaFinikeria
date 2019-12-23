@@ -60,7 +60,11 @@ public class LoginFragment extends Fragment implements LoginNavigator {
                 String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
                 if (!email.isEmpty() && !password.isEmpty()) {
-                    mViewModel.loginUser(email, password);
+                    try {
+                        mViewModel.loginUser(email, password);
+                    } catch(Exception ex) {
+                        showError(ex.toString());
+                    }
                 }
             }
         });
