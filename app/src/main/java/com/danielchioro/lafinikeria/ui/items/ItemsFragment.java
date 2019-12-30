@@ -1,10 +1,13 @@
 package com.danielchioro.lafinikeria.ui.items;
 
 import androidx.lifecycle.ViewModelProviders;
+
+import android.graphics.Canvas;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +21,9 @@ import com.danielchioro.lafinikeria.models.Food;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
+
+import static androidx.recyclerview.widget.ItemTouchHelper.LEFT;
+import static androidx.recyclerview.widget.ItemTouchHelper.RIGHT;
 
 public class ItemsFragment extends Fragment implements ItemsNavigator {
 
@@ -47,6 +53,11 @@ public class ItemsFragment extends Fragment implements ItemsNavigator {
         mRecyclerView = getActivity().findViewById(R.id.items_RecyclerView);
         RecyclerView.LayoutManager mManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         mRecyclerView.setLayoutManager(mManager);
+
+        ItemsSwipeController swipeController = new ItemsSwipeController();
+        ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
+        itemTouchhelper.attachToRecyclerView(mRecyclerView);
+
         AddItemsButton = getActivity().findViewById(R.id.items_addItem_floatingActionButton);
         mViewModel = ViewModelProviders.of(this).get(ItemsViewModel.class);
         mViewModel.navigator = this;
@@ -55,6 +66,7 @@ public class ItemsFragment extends Fragment implements ItemsNavigator {
     @Override
     public void drawItems(List<Food> items) {
         mAdatper = new ItemsRecyclerViewAdapter(items);
+        mRecyclerView.setAdapter(mAdatper);
     }
 
     @Override
