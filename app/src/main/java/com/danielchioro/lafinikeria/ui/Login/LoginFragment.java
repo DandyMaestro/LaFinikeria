@@ -17,16 +17,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.danielchioro.lafinikeria.MainViewActivity;
+import com.danielchioro.lafinikeria.ui.Register.RegisterActivity;
 import com.danielchioro.lafinikeria.R;
-import com.danielchioro.lafinikeria.RegisterActivity;
-import com.danielchioro.lafinikeria.ui.MainView.MainViewFragment;
 
 public class LoginFragment extends Fragment implements LoginNavigator {
 
     private LoginViewModel mViewModel;
 
     private Button mLoginButton;
-//    private Button mRegisterButton;
+    private Button mRegisterButton;
     private TextView mPassword;
     private TextView mEmail;
 
@@ -39,7 +38,7 @@ public class LoginFragment extends Fragment implements LoginNavigator {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.main_fragment, container, false);
+        return inflater.inflate(R.layout.login_fragment, container, false);
     }
 
     @Override
@@ -50,9 +49,9 @@ public class LoginFragment extends Fragment implements LoginNavigator {
         // TODO: Use the ViewModel
 
         mLoginButton = getActivity().findViewById(R.id.login_button);
-//        mRegisterButton = getActivity().findViewById(R.id.register_button);
-        mPassword = getActivity().findViewById(R.id.password_editText);
-        mEmail = getActivity().findViewById(R.id.email_editText);
+        mRegisterButton = getActivity().findViewById(R.id.register_button);
+        mPassword = getActivity().findViewById(R.id.register_password_editText);
+        mEmail = getActivity().findViewById(R.id.register_email_editText);
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,13 +68,13 @@ public class LoginFragment extends Fragment implements LoginNavigator {
             }
         });
 
-//        mRegisterButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getContext(), RegisterActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        mRegisterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

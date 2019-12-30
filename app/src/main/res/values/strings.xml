@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">La Finikeria</string>
+    <!--  Login module  -->
+    <string name="app_name">La Finikera</string>
     <string name="email">Email</string>
     <string name="Login_button">Login</string>
+    <string name="Register_button">Registrarse</string>
     <string name="password_placeholder">Contraseña</string>
-    <string name="register_button">Registrarse</string>
     <string name="title_activity_main_view">MainViewActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -11,6 +12,12 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <!--  Register Module  -->
+    <string name="register_title">Registro</string>
+    <string name="commerce_name">Nombre del negocio</string>
+    <string name="user_name">Nombre</string>
+    <string name="register_button">Registrarse</string>
+
     <!--   Menu Lables -->
     <string name="menu_orders">Ordenes</string>
     <string name="menu_items">Articulos</string>
@@ -18,7 +25,7 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-
+    <!--  Logout Action  -->
     <string name="menu_logout">Cerrar Sesión</string>
 
     <string name="orders_item_id">Order id</string>
