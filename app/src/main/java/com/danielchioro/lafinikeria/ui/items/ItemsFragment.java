@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.danielchioro.lafinikeria.R;
 import com.danielchioro.lafinikeria.models.Food;
+import com.danielchioro.lafinikeria.util.ItemSwipeController;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -54,7 +55,7 @@ public class ItemsFragment extends Fragment implements ItemsNavigator {
         RecyclerView.LayoutManager mManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         mRecyclerView.setLayoutManager(mManager);
 
-        ItemsSwipeController swipeController = new ItemsSwipeController();
+        ItemSwipeController swipeController = new ItemSwipeController(getContext());
         ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
         itemTouchhelper.attachToRecyclerView(mRecyclerView);
 
