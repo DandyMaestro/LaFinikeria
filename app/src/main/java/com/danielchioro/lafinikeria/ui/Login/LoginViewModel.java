@@ -28,14 +28,6 @@ public class LoginViewModel extends ViewModel {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            task.addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    navigator.showError(e.toString());
-                                }
-                            });
-
-
                             task.addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
@@ -44,7 +36,12 @@ public class LoginViewModel extends ViewModel {
                                 }
                             });
                         } else {
-                            navigator.showError("Error desconocido?");
+                            task.addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    navigator.showError(e.toString());
+                                }
+                            });
                         }
 
                     }
