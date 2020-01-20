@@ -39,7 +39,7 @@ public class LoginViewModel extends ViewModel {
                             task.addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    navigator.showError(e.toString());
+                                    navigator.showError(e.getLocalizedMessage());
                                 }
                             });
                         }
