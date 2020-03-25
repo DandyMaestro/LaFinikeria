@@ -42,5 +42,4 @@ public class Food implements Serializable {
         this.price = price;
     }
 
-
 }
