@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/La Finikera.iml" filepath="$PROJECT_DIR$/La Finikera.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LaFinikeria-La Finikera.iml" filepath="$PROJECT_DIR$/LaFinikeria-La Finikera.iml" group="La Finikera" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="La Finikera/app" />
     </modules>
   </component>
 </project>
